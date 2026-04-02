@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Шапка сайта — АгроФерма</title>
+  <style>
+    :root {
+      --blue: #1685d9;
+      --text: #203a58;
+      --light-text: #6f7f93;
+      --line: #e5ebf1;
+      --bg: #f7f9fc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 46px;
+      color: var(--light-text);
+      font-size: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand-mini {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      font-weight: 600;
+      color: #384f67;
+    }
+
+    .brand-mini .badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #dfe8f3;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .top-center,
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      white-space: nowrap;
+    }
+
+    .top-right .phone {
+      font-size: 34px;
+      color: #1d3552;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .middle-row {
+      display: grid;
+      grid-template-columns: 180px 1fr auto;
+      align-items: center;
+      gap: 18px;
+      padding: 14px 0 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px 16px 22px 22px;
+      background: linear-gradient(180deg, #39a5f2 0%, #1b6cc8 100%);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .logo-mark::before {
+      content: "";
+      position: absolute;
+      inset: 10px 14px 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      clip-path: polygon(50% 0, 95% 100%, 5% 100%);
+    }
+
+    .logo-text {
+      font-size: 32px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      color: #1b3b64;
+    }
+
+    .logo-text span { color: var(--blue); }
+
+    .search-zone {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .catalog-btn {
+      border: none;
+      background: var(--blue);
+      color: #fff;
+      height: 38px;
+      padding: 0 18px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 20px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .search {
+      flex: 1;
+      min-width: 160px;
+      display: flex;
+      border: 1px solid #cdd8e4;
+      border-radius: 2px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .search input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 10px 12px;
+      font-size: 14px;
+      color: #2c425a;
+    }
+
+    .search button {
+      width: 48px;
+      border: none;
+      background: var(--blue);
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .icon-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: #2d4660;
+    }
+
+    .icon-item {
+      text-decoration: none;
+      color: inherit;
+      font-size: 30px;
+      text-align: center;
+      line-height: 1.1;
+      font-weight: 500;
+    }
+
+    .icon-item small {
+      display: block;
+      margin-top: 4px;
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .icon-item .count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: #eef3f8;
+      border: 1px solid #d4deea;
+      vertical-align: top;
+      margin-left: 3px;
+      margin-top: -6px;
+    }
+
+    .menu-row {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      min-height: 50px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .menu-row a {
+      text-decoration: none;
+      color: #243f5d;
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .menu-row a:hover,
+    .icon-item:hover,
+    .catalog-btn:hover,
+    .search button:hover {
+      filter: brightness(0.95);
+    }
+
+    @media (max-width: 1024px) {
+      .top-center,
+      .top-right .hours,
+      .top-right .phone-icon,
+      .top-right .callback {
+        display: none;
+      }
+
+      .middle-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .icon-links {
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-row {
+        font-size: 12px;
+      }
+
+      .logo-text {
+        font-size: 24px;
+      }
+
+      .search-zone {
+        flex-wrap: wrap;
+      }
+
+      .catalog-btn,
+      .search {
+        width: 100%;
+      }
+
+      .icon-links {
+        gap: 12px;
+        overflow-x: auto;
+        justify-content: flex-start;
+      }
+
+      .menu-row {
+        gap: 16px;
+        min-height: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container top-row">
+      <div class="brand-mini">
+        <span class="badge">⚙</span>
+        ЭКСТРАСЕРВИС
+      </div>
+      <div class="top-center">Оборудование для животноводческих комплексов</div>
+      <div class="top-right">
+        <span>📍 Москва</span>
+        <span>🟢</span>
+        <span>💬</span>
+        <span class="callback">📱 Обратный звонок</span>
+        <span class="hours">08:00 - 17:00 пн-пт</span>
+        <span class="phone">8 800 700 56 21</span>
+      </div>
+    </div>
+
+    <div class="container middle-row">
+      <a href="#" class="logo" aria-label="АгроФерма">
+        <span class="logo-mark"></span>
+        <span class="logo-text">АГРО<span>ФЕРМА</span></span>
+      </a>
+
+      <div class="search-zone">
+        <button class="catalog-btn">☰ КАТАЛОГ</button>
+        <form class="search" action="#" method="get">
+          <input type="text" placeholder="Поиск по каталогу" />
+          <button aria-label="Поиск" type="submit">🔎</button>
+        </form>
+      </div>
+
+      <nav class="icon-links" aria-label="Быстрые ссылки">
+        <a class="icon-item" href="#">🌀<small>Ozon</small></a>
+        <a class="icon-item" href="#">📄<small>Каталог</small></a>
+        <a class="icon-item" href="#">📑<small>Прайс-лист</small></a>
+        <a class="icon-item" href="#">🎓<small>Войти</small></a>
+        <a class="icon-item" href="#">🧺<small>Корзина <span class="count">0</span></small></a>
+      </nav>
+    </div>
+
+    <nav class="container menu-row" aria-label="Главное меню">
+      <a href="#">Компания</a>
+      <a href="#">Продукция</a>
+      <a href="#">Распродажа</a>
+      <a href="#">Услуги</a>
+      <a href="#">Проекты</a>
+      <a href="#">Документация</a>
+      <a href="#">События</a>
+      <a href="#">Контакты</a>
+    </nav>
+  </header>
+</body>
+</html>
